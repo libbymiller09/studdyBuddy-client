@@ -1,0 +1,17 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #49274A;
+  color: #F4DECB;
+  text-align: center;
+}
+
+footer a {
+  color: #F4DECB;
+}
+
+footer a:hover {
+  color: #94618E;
+}

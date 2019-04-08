@@ -1,0 +1,32 @@
+* {
+  text-align: center;
+}
+
+.landingContainer {
+  padding: 20px;
+}
+
+header {
+  padding: 20px;
+  color: #49274A;
+}
+
+h2 {
+  display: block;
+  width: 100%;
+  color: #49274A;
+}
+
+h3 {
+  display: block;
+  width: 100%;
+  color: #49274A;
+}
+
+p {
+  color: #94618E;
+}
+
+h4 {
+  color: #94618E;
+}
