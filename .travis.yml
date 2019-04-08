@@ -1,0 +1,12 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: AU0IS2KZ7MvtoGNnTd7vcK+Z6FQPUd0uHM59B02aROCZr/nCnhXjoIpI+LhanIecoz4L7lxaXTbzaUItI0fpSw7ymVD8VV1vY+3xf71pRfGd8aH6igMqwrdKU3I3uOZUahyc/YLASAaRnXGCVHGgdY+GjueUWFKEPWNBHoRnQLL7EfXjr4U2QXN0SKAQy2nb89ZX/vRWQxATVNDXf94/y2mc3DCwhQppiWgQVzZ5GMibGqXFS8wzK4gRwcPbz0QZyxKOUmfCHGxYowXVu2qmiONciKhr/4P0lFJ3Qd+CxP9AhFGdR4mckUKT9mx+CBATpXYT4ppZkIGJGv2dHFVYXhOTZ5Vg7uGe0elviNdGBW3OSd2+fwI7ZaMIVRkJWbXMO7dKkwdwxKq/A6w9EQFnw1Mab5AQkhg4T50WprXi8+iv0kPNxm50O6MEdr7bgtSX1KZlKMYCK0Dd7QxvdUn8CftO5p6LwfzLWfpoOYK7vXEHZYSPuAfs2/s8/dPjLDZh3s9uvxPNLSMMwHfPriM2Q8VrMtuFTOqqWTlKvpGhhVz3D2HpHslQ5iuOUJyCTImFQOEhHtCSDhf78PzxphbE9ySHOvQoZPzN7GdmLrVkMX3faq46INQSbj4gOBPuIbNxtHqdkyY5bMcjkudTHiLsMDMcVXosfQT7amDJtVyIHLE=
+  app: desolate-lowlands-90762
+  on:
+    repo: libbymiller09/studyBuddy
