@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import AddMeetupForm from './addMeetupForm';
-import AddMeetupFormReview from './addMeetupFormReview';
 
 class NewMeetup extends Component {
   render() {
