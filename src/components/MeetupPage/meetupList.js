@@ -33,7 +33,6 @@ class MeetupList extends Component {
   };
 
   render() {
-    // debugger;
     return (
       <div>
         <h2>Current Scheduled Meetups</h2>
