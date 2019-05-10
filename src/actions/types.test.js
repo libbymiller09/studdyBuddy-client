@@ -3,8 +3,7 @@ import {shallow, mount} from 'enzyme';
 import moxios from 'moxios';
 
 import { storeFactory } from '../test/testUtils';
-import { fetchMeetups, fetchUser } from './index';
-// import { FETCH_USER, FETCH_MEETUPS } from './types';
+import { fetchMeetups, fetchUser, deleteMeetup } from './index';
 
 describe('fetch_meetup action dispatcher', () => {
   beforeEach(() => {
@@ -64,5 +63,36 @@ describe('fetch_user action dispatcher', () => {
         const res = store.getState();
       });
       expect(res.user).toBe(meetup);
+  });
+});
+
+describe('delete_meetup action dispatcher', () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+  afterEach(() => {
+    moxios.uninstall();
+  });
+  it('delete meetup from state', () => {
+    const meetup = {
+      subject: 'node.js',
+      time: 'noon',
+      place: 'Prince coffee',
+    };
+    const store = storeFactory();
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: meetup,
+      });
+    });
+
+    return store.dispatch(deleteMeetup())
+      .then(() => {
+        const res = store.getState();
+      });
+      expect(res.meetup).toBe({});
   });
 });
