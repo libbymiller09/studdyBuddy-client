@@ -28,8 +28,8 @@ class Nav extends Component {
     return (
       <nav>
         <ResponsiveMenu 
-          menuOpenButton={<div><i class="fas fa-bars"></i></div>}
-          menuCloseButton={<div><i class="fas fa-times"></i></div>}
+          menuOpenButton={<div><i className="fas fa-bars"></i></div>}
+          menuCloseButton={<div><i className="fas fa-times"></i></div>}
           changeMenuOn="500px"
           largeMenuClassName="large-menu-className"
           smallMenuClassName="small-menu-className"

@@ -5,7 +5,7 @@ import { fetchMeetups } from '../../actions';
 class MeetupList extends Component {
   constructor(props) {
     super(props);
-  };
+    };
 
   componentDidMount() {
     this.props.fetchMeetups();
@@ -18,7 +18,7 @@ class MeetupList extends Component {
   };
 
   renderMeetups() {
-    return this.props.meetups.map(meetup => {
+    return this.props && this.props.meetups && this.props.meetups.map(meetup => {
       return (
         <div key={meetup._id} >
           <div className="meetupContent">
@@ -33,6 +33,7 @@ class MeetupList extends Component {
   };
 
   render() {
+    // debugger;
     return (
       <div>
         <h2>Current Scheduled Meetups</h2>
