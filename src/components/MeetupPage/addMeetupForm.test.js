@@ -12,5 +12,4 @@ describe('<AddMeetupForm />', () => {
     const wrapper = shallow(<AddMeetupForm />);
     expect(wrapper.hasClass ('submitButton')).toEqual(false);
   });
-
 });

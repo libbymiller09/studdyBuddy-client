@@ -3,7 +3,6 @@ import { reduxForm, Field } from 'redux-form';
 
 export class AddMeetupForm extends React.Component {
   onSubmit(values) {
-    console.log(values);
     return fetch('/api/meetups', {
       method: 'POST',
       body: JSON.stringify(values),
@@ -13,7 +12,7 @@ export class AddMeetupForm extends React.Component {
     }).then(res => res.json())
     .then(response => console.log('Success'))
     .catch(error => console.error('error'));
-  }
+  };
 
   render() {
     return (
@@ -38,8 +37,8 @@ export class AddMeetupForm extends React.Component {
         </button>
       </form>
     );
-  }
-}
+  };
+};
 
 export default reduxForm({
   form: 'addMeetupForm'
