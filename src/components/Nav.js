@@ -8,8 +8,8 @@ import '../float.grid.css';
 
 class Nav extends Component {
   renderContent() {
-    switch (this.props.auth) {
-      case null:
+    switch (this.props && this.props.auth) {
+      case true: // might be null !!
         return;
       case false:
         return (

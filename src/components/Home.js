@@ -2,9 +2,6 @@ import React from 'react';
 import './Home.css';
 import '../float.grid.css';
 
-// import { Link } from 'react-router-dom';
-// import MeetupPage from './MeetupPage/meetupPage';
-
 class Home extends React.Component {
   render() {
     return (
