@@ -1,44 +1,68 @@
-// import configureMockStore from 'redux-mock-store';
-// import thunk from 'redux-thunk';
-// import * as actions from '../actions/index';
-// import * as types from '../actions/types';
-// import fetchMock from 'fetch-mock';
-// import expect from 'expect';
-// // import { FETCH_USER, fetchUser, FETCH_MEETUPS, fetchMeetups, DELETE_MEETUPS, delete_meetups } from './types';
+import React from 'react';
+import {shallow, mount} from 'enzyme';
+import moxios from 'moxios';
 
-// const middlewares = [thunk];
-// const mockStore = configureMockStore(middlewares);
+import { storeFactory } from '../test/testUtils';
+import { fetchMeetups, fetchUser } from './index';
+// import { FETCH_USER, FETCH_MEETUPS } from './types';
 
-// describe('async actions', () => {
-//   afterEach(() => {
-//     fetchMock.restore();
-//   });
+describe('fetch_meetup action dispatcher', () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+  afterEach(() => {
+    moxios.uninstall();
+  });
+  it('add meetup to state', () => {
+    const meetup = {
+      subject: 'node.js',
+      time: 'noon',
+      place: 'Prince coffee',
+      _user: 'TestUser',
+    };
+    const store = storeFactory();
 
-//   it('should FETCH_MEETUPS', () => {
-//     fetchMock.getOnce('/api/meetups', {
-//       body: { meetups: ['test', 'test', 'test'] },
-//       headers: { 'content-type': 'application/json' }
-//     });
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: meetup,
+      });
+    });
 
-//     const expectedActions = [
-//      { type: types.FETCH_MEETUPS, body: { meetups: ['test', 'test', 'test'] } }
-//     ]
-//     const store = mockStore({ meetups: [] })
+    return store.dispatch(fetchMeetups())
+      .then(() => {
+        const res = store.getState();
+      });
+      expect(res.meetup).toBe(meetup);
+  });
+});
 
-//     return store.dispatch(actions.fetchMeetups()).then(() => {
-//       expect(store.getActions()).toEqual(expectedActions);
-//     });
-//   });
-// });
+describe('fetch_user action dispatcher', () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+  afterEach(() => {
+    moxios.uninstall();
+  });
+  it('add meetup to state', () => {
+    const user = {
+      googleId: '1234',
+    };
+    const store = storeFactory();
 
-// describe('fetchUser', () => {
-//   it('should return the action', () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: user,
+      });
+    });
 
-//   });
-// });
-
-// describe('deleteMeetups', () => {
-//   it('should return the action', () => {
-
-//   });
-// });
+    return store.dispatch(fetchUser())
+      .then(() => {
+        const res = store.getState();
+      });
+      expect(res.user).toBe(meetup);
+  });
+});
