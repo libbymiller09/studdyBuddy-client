@@ -18,7 +18,7 @@ class MeetupList extends Component {
   };
 
   renderMeetups() {
-    return this.props.meetups.reverse().map(meetup => {
+    return this.props.meetups.map(meetup => {
       return (
         <div key={meetup._id} >
           <div className="meetupContent">
