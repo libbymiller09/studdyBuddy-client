@@ -11,7 +11,7 @@ import MapPage from './MapPage/mapPage';
 import MeetupPage from './MeetupPage/meetupPage';
 import Footer from './Footer';
 import { deleteMeetup } from '../actions';
-import DeleteMeetup from './MeetupPage/deleteMeetup';
+// import DeleteMeetup from './MeetupPage/deleteMeetup';
 
 class App extends Component {
   componentDidMount() {
