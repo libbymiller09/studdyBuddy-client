@@ -32,7 +32,8 @@ export class AddMeetupForm extends React.Component {
           disabled={
             this.props.pristine ||
             this.props.submitting
-          }>
+          }
+        >
           Add
         </button>
       </form>
