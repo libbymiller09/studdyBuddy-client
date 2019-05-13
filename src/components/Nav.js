@@ -9,7 +9,7 @@ import '../float.grid.css';
 class Nav extends Component {
   renderContent() {
     switch (this.props && this.props.auth) {
-      case true: // might be null !!
+      case null: 
         return;
       case false:
         return (
@@ -20,7 +20,7 @@ class Nav extends Component {
           <li key="1"><Link to="/">Home</Link></li>,
           // <li key="2"><Link to="/map">Map</Link></li>,
           <li key="3"><Link to="/meetups">Meetups</Link></li>,
-          <li key="4"><a href="/api/logout">Logout</a></li>
+          <li key="4"><Link to="/api/logout">Logout</Link></li>
         ];
     }
   }
@@ -45,13 +45,6 @@ class Nav extends Component {
           </ul>
           }
         />
-        {/* <div className="authLink">
-          <Link to={this.props.auth ? '/' : '/'}
-          >
-          StudyBuddy
-          </Link> */}
-          
-        {/* </div> */}
       </nav>
     );
   }

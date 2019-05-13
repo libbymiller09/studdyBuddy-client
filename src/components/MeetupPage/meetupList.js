@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
 import { fetchMeetups } from '../../actions';
 
 class MeetupList extends Component {
@@ -15,12 +14,14 @@ class MeetupList extends Component {
   };
 
   renderMeetups() {
-    let meetups = 
-      this.props.meetups !== undefined
-        ? this.props.meetups 
-        : (this.props.trigger === 'hover' ? 100: 0)
+    // let meetups = 
+    //   this.props.meetups !== undefined
+    //     ? this.props.meetups 
+    //     : (this.props.trigger === 'hover' ? 100: 0)
         
       return this.props && this.props.meetups && this.props.meetups.map(function(meetup) {
+        // return Object.values(this.props.meetups).forEach(meetup => {
+          
         return (
           <div key={meetup._id} >
             <div className="meetupContent">
@@ -56,9 +57,5 @@ function completedButton(id) {
 function mapStateToProps({ meetups }) {
   return { meetups };
 };
-
-// MeetupList.propTypes = {
-//   meetups: PropTypes.array.isRequired,
-// };
 
 export default connect(mapStateToProps, { fetchMeetups })(MeetupList);
