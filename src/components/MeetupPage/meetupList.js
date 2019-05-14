@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import { fetchMeetups } from '../../actions';
 
 class MeetupList extends Component {
+  // constructor(props) {
+  //   super(props);
+
+  //   this.props = {
+  //     meetups: null,
+  //   };
+  // }
+
   componentDidMount() {
     this.props.fetchMeetups();
   };
@@ -14,26 +22,42 @@ class MeetupList extends Component {
   };
 
   renderMeetups() {
+    return (
+      <div>
+        <div className="meetupContent">
+          {(this.props.meetups || []).map(meetup => (
+            <div key={meetup._id}>
+              <h3 className="subject">Subject: {meetup.subject}</h3>
+              <h3 className="time">Time: {meetup.time}</h3>
+              <h3 className="place">Place: {meetup.place}</h3>
+              <button onClick={() => { completedButton(meetup._id) }} className="check-toggle" type="button">Completed</button>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+
     // let meetups = 
     //   this.props.meetups !== undefined
     //     ? this.props.meetups 
     //     : (this.props.trigger === 'hover' ? 100: 0)
-        
-      return this.props && this.props.meetups && this.props.meetups.map(function(meetup) {
-        // return Object.values(this.props.meetups).forEach(meetup => {
+
+    //   return this.props && this.props.meetups && this.props.meetups.map(function(meetup) {
+    //     // return Object.values(this.props.meetups).forEach(meetup => {
           
-        return (
-          <div key={meetup._id} >
-            <div className="meetupContent">
-              <h3 className="subject">Subject: {meetup.subject}</h3>
-              <h3 className="time">Time: {meetup.time}</h3>
-              <h3 className="place">Place: {meetup.place}</h3>
-            </div>
-            <button onClick={() => { completedButton(meetup._id) }} className="check-toggle" type="button">Completed</button>
-          </div>
-        );
-      });
+    //     return (
+    //       <div key={meetup._id} >
+    //         <div className="meetupContent">
+    //           <h3 className="subject">Subject: {meetup.subject}</h3>
+    //           <h3 className="time">Time: {meetup.time}</h3>
+    //           <h3 className="place">Place: {meetup.place}</h3>
+    //         </div>
+    //         <button onClick={() => { completedButton(meetup._id) }} className="check-toggle" type="button">Completed</button>
+    //       </div>
+    //     );
+    //   });
     };
+  
     
 
   render() {
