@@ -15,8 +15,9 @@ class MeetupList extends Component {
   };
 
   renderMeetups() {
-    return this.props && this.props.meetups && this.props.meetups.map(function(meetup) {
-      // return Object.values(this.props.meetups).forEach(meetup => {
+    let meetupProps = this.props.meetups || [];
+    return meetupProps.map(function(meetup) {
+    // return this.props && this.props.meetups && this.props.meetups.map(function(meetup) {
       return (
         <div key={meetup._id} >
           <div className="meetupContent">
