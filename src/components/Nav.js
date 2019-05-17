@@ -8,21 +8,37 @@ import '../float.grid.css';
 
 class Nav extends Component {
   renderContent() {
-    switch (this.props && this.props.auth) {
-      case null: 
-        return;
-      case false:
-        return (
-          <li id="loginButton"><a href="/auth/google">Login with Google</a></li>
-        );
-      default:
-        return [
-          <li key="1"><Link to="/">Home</Link></li>,
-          // <li key="2"><Link to="/map">Map</Link></li>,
-          <li key="3"><Link to="/meetups">Meetups</Link></li>,
-          <li key="4"><Link to="/api/logout">Logout</Link></li>
-        ];
+    let authProps = this.props && this.props.auth;
+    if (authProps) {
+      return [
+        <li key="1"><Link to="/">Home</Link></li>,
+        // <li key="2"><Link to="/map">Map</Link></li>,
+        <li key="3"><Link to="/meetups">Meetups</Link></li>,
+        <li key="4"><Link to="/api/logout">Logout</Link></li>
+      ];
+    } else {
+      return ( 
+        <li id="loginButton"><a href="/auth/google">Login with Google</a></li>
+      );
     }
+  //   switch (authProps) {
+  //   // switch (this.props && this.props.auth) {
+  //     case null: 
+  //       return ( 
+  //         <li id="loginButton"><a href="/auth/google">Login with Google</a></li>
+  //       );
+  //     case false:
+  //       return (
+  //         <li id="loginButton"><a href="/auth/google">Login with Google</a></li>
+  //       );
+  //     default:
+  //       return [
+  //         <li key="1"><Link to="/">Home</Link></li>,
+  //         // <li key="2"><Link to="/map">Map</Link></li>,
+  //         <li key="3"><Link to="/meetups">Meetups</Link></li>,
+  //         <li key="4"><Link to="/api/logout">Logout</Link></li>
+  //       ];
+  //   }
   }
   render() {
     return (
