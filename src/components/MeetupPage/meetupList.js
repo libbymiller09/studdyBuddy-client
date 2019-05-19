@@ -14,11 +14,11 @@ class MeetupList extends Component {
   //   };
   // };
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.meetups !== this.props && this.props.meetups) {
-  //     this.props.fetchMeetups();
-  //   };
-  // };
+  componentDidUpdate(prevProps) {
+    if (prevProps.meetups !== this.props && this.props.meetups) {
+      this.props.fetchMeetups();
+    };
+  };
 
   renderMeetups() {
     const meetupProps = this.props.meetups || [];
