@@ -8,14 +8,20 @@ class MeetupList extends Component {
     this.props.fetchMeetups();
   };
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.meetups !== this.props && this.props.meetups) {
-      this.props.fetchMeetups();
-    };
-  };
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.meetups !== nextProps.meetups) {
+  //     this.setState({changed: true});
+  //   };
+  // };
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.meetups !== this.props && this.props.meetups) {
+  //     this.props.fetchMeetups();
+  //   };
+  // };
 
   renderMeetups() {
-    let meetupProps = this.props.meetups || [];
+    const meetupProps = this.props.meetups || [];
     return meetupProps.map(function(meetup) {
     // return this.props && this.props.meetups && this.props.meetups.map(function(meetup) {
       return (
@@ -54,3 +60,4 @@ function mapStateToProps({ meetups }) {
 };
 
 export default connect(mapStateToProps, { fetchMeetups })(MeetupList);
+
