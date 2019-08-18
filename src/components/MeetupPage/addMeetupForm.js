@@ -1,9 +1,10 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+const {API_BASE_URL} = require('../../config');
 
 export class AddMeetupForm extends React.Component {
   onSubmit(values) {
-    return fetch('/api/meetups', {
+    return fetch(`${API_BASE_URL}/meetups`, {
       method: 'POST',
       body: JSON.stringify(values),
       headers: {

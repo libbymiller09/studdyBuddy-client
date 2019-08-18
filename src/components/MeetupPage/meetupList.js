@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMeetups } from '../../actions';
+const {API_BASE_URL} = require('../../config');
 
 class MeetupList extends Component {
 
@@ -50,7 +51,7 @@ class MeetupList extends Component {
 };
 
 function completedButton(id) {
-  fetch('/api/meetups/' + id, {
+  fetch(`${API_BASE_URL}/meetups/` + id, {
     method: "DELETE",
   });
 };
